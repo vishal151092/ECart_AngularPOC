@@ -1,4 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!-- The content below is only a placeholder and can be replaced.
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -18,4 +18,22 @@
   </li>
 </ul>
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+
+<!-- <app-navbar></app-navbar>
+<app-login></app-login>
+<br><br>
+<app-signup></app-signup>
+<br><br> -->
+<br><br>
+<div class="container ">
+  <div class="row col-lg-12">
+
+    <div *ngFor="let product of products | slice:0:100; let i=index" class="col-lg-4"><app-product  [product]="product"></app-product><br></div>
+
+    <!-- <div class="col-lg-4"><app-product [product]="products[1]"></app-product><br></div>
+      <div class="col-lg-4"><app-product [product]="products[2]"></app-product><br></div>
+      <div class="col-lg-4"><app-product ></app-product><br></div> -->
+    </div> 
+</div>
+

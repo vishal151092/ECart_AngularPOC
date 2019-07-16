@@ -1,0 +1,18 @@
+<div class="container" >
+    <br><br>
+    <div class="col-md-3" *ngIf="!addedtoCart">
+        <button class="btn btn-success" (click)="addToCart()">Add to Cart</button>
+    </div>
+<div class="row col-md-6" style="border: 1px solid black">
+    <div class="row col-md-12"><h3>{{product.name}}</h3></div><br>
+    <div class="row col-md-12" style="margin-bottom: 20px">
+        <img [src]="product.image" alt="product image shown here">
+    </div>
+    <div class="row col-md-12">MRP : {{product.price}}/- Only</div><br>
+    <div class="row col-md-12">rating : {{product.ratings}} &nbsp; <p style="color: gold">&#9733;</p></div>
+    <div class="row col-md-12">Description : {{product.description}}</div><br>
+    
+    <br>
+</div>
+<div class="col-md-3"></div>
+</div>
