@@ -4,11 +4,11 @@
      <div >color: {{product.color}} </div>   -->
 
 <div class="" *ngIf="product.name">
-     <div (click)="showProductDetails()" class="card" style="width: 18rem;border: 1px solid black;cursor: pointer">
+     <div highlight (click)="showProductDetails()" class="card" style="width: 18rem;border: 1px solid black;cursor: pointer">
     <img [src]="product.image" class="card-img-top" alt="..." height="200" width="100">
     <div class="card-body">
       <h5 class="card-title">{{product.name}}</h5>
-      <p class="card-text">Price: {{product.price}} /- Only
+      <p class="card-text">Price: {{product.price | discount}} /- Only
           
             <div >Brand: {{product.brand}} </div> 
     </div>

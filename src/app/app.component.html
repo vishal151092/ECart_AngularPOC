@@ -26,10 +26,14 @@
 <app-signup></app-signup>
 <br><br> -->
 <br><br>
+<div (click)="toggleFilter()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHkAAAB5CAMAAAAqJH57AAAAY1BMVEX///8AAABWVlbPz8/a2tqKiopiYmKDg4Pz8/OqqqpwcHAXFxexsbHX19fr6+s4ODjHx8dJSUn5+fm7u7vk5OSampohISEcHBwqKipCQkKQkJBqamp8fHygoKAxMTFcXFwMDAw74/NnAAADkElEQVRoge2a6XajMAyFIStLIGxZmjbL+z9l0zMz4coIIxvjnna4f+PkC8a+liwFwf+oPE4WHpTsIgWcHUNPOhaUfPYFfionZI/gcEfIe4/kmJAvHskZIa/8gU/K4n73Rj4o5Kr0BL53rKSBRfa+WrpTFiN4X3VdbJW2n9fdj60VoVeccm7IEkYU3AArVTd85BU/qIAhS1fkt1Dyq/BG0qxvkJk2CNa8xHU76ty4AH8gONaNTGAVqueZhYg1rvVjF+3It9HgK4LfBwZHsK03I8E1gsvB4Q3ECB+jwLhLwzPjIKrw8LiMAGcIfrAOovuvV2swWmKvg6jC97MbHs4qJ7GG2BIPNl8iisjRZ/D30QCsfHSBYPVE1gpNz8LMSJxhtkMwUDgZmxnxzG4ooBeeqjfBXkThMrFwwgZ2xbD/oEgMcrNwf3SCIc9FEc9MrU48DBTkqwS/ZR1g4LRJfTR7INg6noNAQX+sv9SQnFT2HVaJ4f8nceZQKKAXOorgnZE402RZdlVh6Dh44BCzNnUQVTh/pwE08czS0H66auDX9trdiesxvDkIXTFQKDWORDwzFYYCeqEp9b884pmuUhR8mr4FSzzTXUa4hR/lfZSEeyOit47QUTgfbQh46w4cVAOOQvK2cQ6iCiO6rilWCF6M3shU+UkzmTjZpSimN9FKQ4a0xE3yS1WIyE4cRNVGQKYLP9LLKRlW35LckLAqhVZnRq55mCLZbYwROZLdHifuyRlPUqVevzogFzypo2975pt7ci4rycgSXLO1HfMoKmG6Z7if68051as8CA8XQ/KghUXiQ82Y7EwzeSbP5Jk8k383ud4mel2l+YgZOb+Hg3oIM3wzcsLDFMme2ojc8CRVsptcI/KSJ6l6/CaycLYnyG6EbSITZHSiXXWeZFc9E5x6p1chzd1/jnvO5J9N7jY++CKHiZoEeiOHd2UjTk3G/hp6rTo1mXTEkCN9anKEZHK/PjU5WPaVOycnBzmpGrT3utOTlXLYa8J9kPlCPE/O61gvw3Ia1FJeRRqWTMqUvPR1zq5ejW6vghhHFoCfMuy8KP40fLTtevYRoGkb2NcaP19a97aPeo+G5Ce7wXma+n67XwxZ2JY9tiWAIQt7o8eWi7m1naUa4D+N6TPsJQdVfNlqtb6OL+h5cc+ZPJNnshe1R+JoUzLVizxJm4FO12+a7OBvZ1Hqfa6/tNpda+c9LJPqE9jJMe0pzw/qAAAAAElFTkSuQmCC" alt="filter" height="20" width="20"></div>
+<div *ngIf="filterOpen">
+<app-product-filter></app-product-filter>
+</div>
 <div class="container ">
   <div class="row col-lg-12">
 
-    <div *ngFor="let product of products | slice:0:100; let i=index" class="col-lg-4"><app-product  [product]="product"></app-product><br></div>
+    <div *ngFor="let product of products | slice:0:100; let i=index" [disableProduct]="product" class="col-lg-4"><app-product  [product]="product"></app-product><br></div>
 
     <!-- <div class="col-lg-4"><app-product [product]="products[1]"></app-product><br></div>
       <div class="col-lg-4"><app-product [product]="products[2]"></app-product><br></div>

@@ -39,9 +39,9 @@ products = [
 
   }
 ]
-
+filterOpen = false;
 getAllProductUrl='https://ashuapi.herokuapp.com/api/allproducts';
-
+masterProductList=[];
 constructor( private cs : CommonService, private http : HttpClient, private router : Router){
   //console.log(cs.name);
 
@@ -62,10 +62,47 @@ router.navigate(['/login']);
       this.http.get(this.getAllProductUrl).subscribe((response)=>{
           //console.log("response", JSON.stringify(response));
   this.products = response["data"];
+  this.masterProductList =response["data"];
   //console.log(this.products);
       },function(error){
   
       })
   }
 
+  toggleFilter(){
+    this.filterOpen = !this.filterOpen;
+    
+  }
+
+  ngDoCheck(){
+    //this.cs.filterRange;
+    console.log("in do check of app component");
+    console.log("last list count, ", this.products.length);
+    this.products=this.masterProductList;
+    if(this.cs.filterRange == 6){
+      this.products= this.masterProductList;
+    }
+if(this.cs.filterRange && this.cs.filterRange !== 6){
+  this.products=  this.products.filter( each => {
+   if(this.cs.filterRange == 1){
+    return each.price > 500 && each.price <1000;
+    //console.log("filter updated");
+    //console.log(this.products.length);
+  }
+    if(this.cs.filterRange == 2){
+    return each.price > 1000 && each.price <2000;
+  }
+   if(this.cs.filterRange == 3){
+   return each.price > 2000 && each.price <5000;
+  }
+   if(this.cs.filterRange == 4)
+    return each.price > 5000 && each.price <10000;
+    
+   if(this.cs.filterRange == 5)
+   return each.price > 10000 ;
+   
+  })
+}
+
+  }
 }

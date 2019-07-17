@@ -1,0 +1,15 @@
+Component is also a directive+  view
+Directive will have only Ts file.
+Directive is basically a function available throughout html pages
+
+1- Services are used using Dependency Injection concept. We provide name of service in Provider of componet, which will be available to component and can be used by calling in constructor.
+
+pipes are declared in imports in module level only. Can't be imported at component level
+
+Component Life Cycle
+
+	1- Constructor() : called when HTML compiler hits tag
+	2- ngOnChanges(): //this will be called even after ngOnInit, when data changes.
+	3- ngOnInit() : 
+	4- ngDoCheck():
+ngOnDestroy():
